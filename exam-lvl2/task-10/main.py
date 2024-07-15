@@ -66,7 +66,7 @@ class CacheSystem:
         if len(self.l2_cache) >= self.l2_size:
             self.l2_cache.popitem(last=False)
         self.l2_cache[key] = value
-        
+
 # Example usage:
 cache = CacheSystem(2, 3)
 cache.put('a', 1)
