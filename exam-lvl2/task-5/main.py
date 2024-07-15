@@ -11,11 +11,15 @@
 # - `ElectricCar` should add `battery_size` and initialize it using `super()`.
 
 class Car:
-  pass
+  def __init__(self, make, model):
+    self.make = make
+    self.model = model
 
 class ElectricCar(Car):
-  pass
+  def __init__(self, make, model, battery_size):
+    super().__init__(make, model)  # Initialize make and model using the parent class
+    self.battery_size = battery_size
 
 # Desired Outcome:
-# ec = ElectricCar('Tesla', 'Model S', 85)
-# print(ec.make, ec.model, ec.battery_size)  # Expected: Tesla Model S 85
+ec = ElectricCar('Tesla', 'Model S', 85)
+print(ec.make, ec.model, ec.battery_size)  # Expected: Tesla Model S 85
