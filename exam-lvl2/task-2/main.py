@@ -9,10 +9,27 @@
 # - Ensure the data list is not empty before performing calculations; raise ValueError if it is.
 
 class DataAnalyzer:
-    pass
+    def __init__(self, data):
+        if not data:
+            raise ValueError("Data list cannot be empty")
+        self.data = data
 
+    def average(self):
+        return sum(self.data) / len(self.data)
+
+    def total(self):
+        return sum(self.data)
+
+    def median(self):
+        sorted_data = sorted(self.data)
+        n = len(sorted_data)
+        mid = n // 2
+        if n % 2 == 0:
+            return (sorted_data[mid - 1] + sorted_data[mid]) / 2
+        else:
+            return sorted_data[mid]
 # Examples:
-# da = DataAnalyzer([1, 3, 5, 7])
-# print(da.average())  # Expected: 4.0
-# print(da.total())    # Expected: 16
-# print(da.median())   # Expected: 4.0
+da = DataAnalyzer([1, 3, 5, 7])
+print(da.average())  # Expected: 4.0
+print(da.total())    # Expected: 16
+print(da.median())   # Expected: 4.0
